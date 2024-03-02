@@ -21,7 +21,7 @@ enum-converter:
 telegram:
   bot:
     username: "abstract_copier_bot"
-    token: "6909698945:AAGhqcljQilzRI5rnLhBP8ADDWZPmYWfBhQ"
+    token: ${BOT_TOKEN}
     session:
       enable: true
       time-life:
