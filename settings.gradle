@@ -1,0 +1,3 @@
+rootProject.name = 'bot-copier'
+
+includeBuild 'bot-artifacts'

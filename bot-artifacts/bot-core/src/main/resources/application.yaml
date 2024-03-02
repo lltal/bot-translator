@@ -1,0 +1,45 @@
+server:
+  port: 10_16
+
+program-agent:
+  charts:
+    bot-message: true
+  client:
+    token: "tuts-token-dew-bot"
+    time-delay-send: 15000
+    host: "http://wds-program-agent.ru/api/"
+    myHost: "http://localhost:1016/api/"
+
+dto-filler:
+  packages-to-scan:
+    - "com.github.lltal.botcopier.core.input.telegram"
+
+enum-converter:
+  packages-to-scan:
+    - "com.github.lltal.botcopier.shared.constants"
+
+telegram:
+  bot:
+    username: "abstract_copier_bot"
+    token: "6909698945:AAGhqcljQilzRI5rnLhBP8ADDWZPmYWfBhQ"
+    session:
+      enable: true
+      time-life:
+        chat: 60
+        user: 10
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/copier_bot
+    username: postgres
+    password: postgres
+  jpa:
+    open-in-view: false
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
