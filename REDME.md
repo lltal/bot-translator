@@ -1,3 +1,3 @@
-**Bot for translation message from one chat to another**  
-How to use:  
-Send a /start message to bot and follow instructions 
+Бот предназначен для копирования сообщений из одного чата/канала  
+в другой чат/канал или лс.  
+[Напиши боту](https://t.me/lltal_translator_bot) и следуй инструкциям.
