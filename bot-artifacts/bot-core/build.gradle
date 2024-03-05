@@ -1,5 +1,4 @@
 dependencies {
-    implementation project(':dto-filler')
     implementation project(':bot-shared')
     implementation project(':redis')
     implementation project(':enum-converter')
@@ -12,7 +11,6 @@ dependencies {
     implementation group: 'com.squareup.retrofit2', name: 'retrofit', version: '2.9.0'
     implementation group: 'com.squareup.retrofit2', name: 'converter-gson', version: '2.9.0'
 
-
     implementation 'org.springframework.boot:spring-boot-starter-cache'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-security'
@@ -22,4 +20,10 @@ dependencies {
     runtimeOnly 'org.postgresql:postgresql'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+bootJar {
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+    enabled = true
+    mainClass = 'com.github.lltal.botcopier.core.BotCoreApplication'
 }

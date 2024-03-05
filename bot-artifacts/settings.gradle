@@ -1,7 +1,6 @@
 rootProject.name = 'bot-artifacts'
 
 include 'bot-shared'
-include 'dto-filler'
 include 'bot-core'
 include 'redis'
 include 'enum-converter'

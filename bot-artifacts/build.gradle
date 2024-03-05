@@ -36,3 +36,8 @@ subprojects {
         testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
     }
 }
+
+project( ":bot-core" ).getTasks().named( "jar" ).configure {
+    dependsOn project( ":bot-shared" ).getTasks().named( "jar" )
+    dependsOn project( ":redis" ).getTasks().named( "jar" )
+}

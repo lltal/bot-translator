@@ -1,7 +1,10 @@
 dependencies {
-    implementation project(':enum-converter')
     implementation project(':bot-shared')
     
     implementation group: 'org.springframework.data', name: 'spring-data-redis', version: '3.0.0'
     implementation group: 'redis.clients', name: 'jedis', version: '4.2.3'
+}
+
+bootJar {
+    enabled = false
 }

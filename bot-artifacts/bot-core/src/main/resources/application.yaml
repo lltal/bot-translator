@@ -12,11 +12,11 @@ program-agent:
 
 dto-filler:
   packages-to-scan:
-    - "com.github.lltal.botcopier.core.input.telegram"
+    - "com.github.lltal.botcopier"
 
 enum-converter:
   packages-to-scan:
-    - "com.github.lltal.botcopier.shared.constants"
+    - "com.github.lltal.botcopier"
 
 telegram:
   bot:

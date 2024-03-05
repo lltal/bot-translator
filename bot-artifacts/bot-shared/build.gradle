@@ -1,4 +1,7 @@
 dependencies {
     implementation(fileTree(dir: 'libs', include: ['*.jar']))
-    implementation project(':enum-converter')
+}
+
+bootJar {
+    enabled = false
 }

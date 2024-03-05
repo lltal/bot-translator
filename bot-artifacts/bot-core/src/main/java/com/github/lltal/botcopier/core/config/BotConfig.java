@@ -2,17 +2,18 @@ package com.github.lltal.botcopier.core.config;
 
 import com.github.lltal.botcopier.shared.config.SharedConfig;
 import com.github.lltal.copier.redis.config.RedisConfig;
-import com.github.lltal.filler.shared.config.FillerConfig;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+
+import javax.sql.DataSource;
 
 @Configuration
 @Import({
@@ -20,7 +21,8 @@ import org.springframework.web.client.RestTemplate;
         RedisConfig.class
 })
 @EntityScan("com.github.lltal.botcopier.core.model")
-@ComponentScan("com.github.lltal.botcopier.core.output.psql.repositories")
+@EnableJpaRepositories("com.github.lltal.botcopier.core.output.psql.repositories")
+@ComponentScan("com.github.lltal.botcopier.core")
 public class BotConfig {
 
     @Bean
@@ -32,5 +34,15 @@ public class BotConfig {
     @ConfigurationProperties(prefix = "telegram.bot")
     public BotProperties botProperties() {
         return new BotProperties();
+    }
+
+    @Bean
+    public DataSource getDataSource() {
+        return DataSourceBuilder.create()
+                .driverClassName("org.postgresql.Driver")
+                .url("jdbc:postgresql://localhost:5432/copier_bot")
+                .username("postgres")
+                .password("postgres")
+                .build();
     }
 }
