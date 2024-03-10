@@ -40,7 +40,7 @@ public class BotConfig {
     public DataSource getDataSource() {
         return DataSourceBuilder.create()
                 .driverClassName("org.postgresql.Driver")
-                .url("jdbc:postgresql://localhost:5432/copier_bot")
+                .url("jdbc:postgresql://database:5432/copier_bot")
                 .username("postgres")
                 .password("postgres")
                 .build();

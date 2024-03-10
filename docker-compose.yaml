@@ -15,9 +15,6 @@ services:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
       POSTGRES_DB: "copier_bot"
-    volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/1-init.sql
-      - ./data.sql:/docker-entrypoint-initdb.d/2-data.sql
     networks:
       backend:
         aliases:
@@ -27,3 +24,23 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+  core:
+    image: botcore:v1
+    build:
+      context: ./bot-artifacts/bot-core
+      dockerfile: Dockerfile
+    environment:
+      BOT_TOKEN: 7126426046:AAGEmRKG4TB4YXBkbWWds4F76Y6ECeW3j5c
+    depends_on:
+      database:
+        condition: service_healthy
+      redisserver:
+        condition: service_started
+    ports:
+      - "8080:8080"
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
