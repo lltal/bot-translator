@@ -30,6 +30,10 @@ services:
       context: ./bot-artifacts/bot-core
       dockerfile: Dockerfile
     environment:
+      SPRING_PROFILES_ACTIVE: prod
+      POSTGRES_DB_ALIAS: database
+      POSTGRES_DB_PORT: 5432
+      POSTGRES_DB: copier_bot
       BOT_TOKEN: 7126426046:AAGEmRKG4TB4YXBkbWWds4F76Y6ECeW3j5c
     depends_on:
       database:

@@ -1,8 +1,0 @@
-org.springframework.context.ApplicationContextInitializer=\
-    com.github.lltal.converter.shared.config.ConverterContextInitializer
-
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-    com.github.lltal.converter.shared.config.ConverterConfig
-
-org.springframework.boot.env.EnvironmentPostProcessor=\
-    com.github.lltal.converter.shared.config.ConverterEnvironmentPostProcessor

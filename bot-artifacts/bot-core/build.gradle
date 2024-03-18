@@ -1,7 +1,6 @@
 dependencies {
     implementation project(':bot-shared')
     implementation project(':redis')
-    implementation project(':enum-converter')
 
     implementation(fileTree(dir: 'libs', include: ['*.jar']))
 

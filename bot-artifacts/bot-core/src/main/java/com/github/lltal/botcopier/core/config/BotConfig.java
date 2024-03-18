@@ -35,14 +35,4 @@ public class BotConfig {
     public BotProperties botProperties() {
         return new BotProperties();
     }
-
-    @Bean
-    public DataSource getDataSource() {
-        return DataSourceBuilder.create()
-                .driverClassName("org.postgresql.Driver")
-                .url("jdbc:postgresql://database:5432/copier_bot")
-                .username("postgres")
-                .password("postgres")
-                .build();
-    }
 }
